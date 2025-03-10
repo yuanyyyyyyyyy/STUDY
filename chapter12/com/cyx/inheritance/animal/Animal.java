@@ -2,7 +2,7 @@
  * @Author: m13237097902 m13237097902@gmail.com
  * @Date: 2025-03-10 06:32:00
  * @LastEditors: m13237097902 m13237097902@gmail.com
- * @LastEditTime: 2025-03-10 06:51:25
+ * @LastEditTime: 2025-03-10 07:07:53
  * @FilePath: /workspace/STUDY/chapter12/com/cyx/inheritance/animal/Animal.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -13,6 +13,11 @@ public class Animal {
     protected String name;
 
     protected int age;
+
+    public Animal(String name, int age){
+        this.name = name;
+        this.age = age;
+    }
 
     protected void eat(){
         System.out.println("吃东西");
