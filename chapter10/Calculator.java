@@ -4,9 +4,9 @@
  * @LastEditTime: 2025-03-07 12:04:44
  */
 
-public class Calculator {
+//public class Calculator {
 
-    /* 
+    /**
     public int number1;
 
     public int number2;
@@ -43,7 +43,7 @@ public class Calculator {
     }
     */
 
-    public int calculator(int number1, int number2, String operator){
+    /*public int calculator(int number1, int number2, String operator){
         switch(operator){
             case "+": return number1 + number2;
             case "-": return number1 - number2;
@@ -53,4 +53,4 @@ public class Calculator {
         }
     }
     
-}
+}*/
