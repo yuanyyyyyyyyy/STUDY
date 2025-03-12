@@ -6,4 +6,8 @@ public class Panda extends Animal{
     public void eat(){
         System.out.println("熊猫吃竹子");
     }
+
+    public void sleeping(){
+        System.out.println("熊猫在睡觉");
+    }   
 }

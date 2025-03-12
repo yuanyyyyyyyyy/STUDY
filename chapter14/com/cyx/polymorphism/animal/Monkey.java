@@ -6,4 +6,8 @@ public class Monkey extends Animal{
     public void eat(){
         System.out.println("猴子吃香蕉");
     }
+
+    public void climbing(){
+        System.out.println("猴子在爬树");
+    }
 }
