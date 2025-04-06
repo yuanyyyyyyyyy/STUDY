@@ -2,7 +2,7 @@
  * @Author: m13237097902 m13237097902@gmail.com
  * @Date: 2025-04-06 09:28:35
  * @LastEditors: m13237097902 m13237097902@gmail.com
- * @LastEditTime: 2025-04-06 09:33:52
+ * @LastEditTime: 2025-04-06 10:02:29
  * @FilePath: /workspace/STUDY/chapter18/com/cyx/io/object/Example1.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -18,7 +18,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 
-import chapter12.com.cyx.inheritance.P3.Student;
 
 public class Example1 {
 
@@ -35,7 +34,7 @@ public class Example1 {
 
         try(OutputStream os = new FileOutputStream(file);
             ObjectOutputStream oos = new ObjectOutputStream(os)){
-                oos.writeObject(new Student("张三"));
+                oos.writeObject(new Student("张三", 20));
                 oos.flush();
             }catch(FileNotFoundException e){
                 e.printStackTrace();
