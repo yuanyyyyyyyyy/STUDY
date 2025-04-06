@@ -1,9 +1,24 @@
+/*
+ * @Author: m13237097902 m13237097902@gmail.com
+ * @Date: 2025-04-02 10:07:10
+ * @LastEditors: m13237097902 m13237097902@gmail.com
+ * @LastEditTime: 2025-04-02 11:02:24
+ * @FilePath: /workspace/STUDY/chapter18/com/cyx/io/Example5.java
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 package chapter18.com.cyx.io;
 
 /**
  * 使用字节流实现磁盘文件拷贝功能
  */
-import java.io.*;
+import java.io.Closeable;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 public class Example5 {
 
@@ -19,6 +34,7 @@ public class Example5 {
         if(!parent.exists()) parent.mkdirs();
         //try(){}catch(){}  JDK 1.7
         //写在括号中的代码只能够是实现了AutoClosable接口的类
+        //is os 调用结束后才会自动关闭
         try(InputStream is = new FileInputStream(sourceFile);
             OutputStream os = new FileOutputStream(destFile);){
 
@@ -60,21 +76,21 @@ public class Example5 {
         }catch(IOException e){
             e.printStackTrace();
         }finally{
-            if(is != null){
-                try{
-                    is.close();
-                }catch(IOException e){
-                    e.printStackTrace();
-                }
-            }
+            // if(is != null){
+            //     try{
+            //         is.close();
+            //     }catch(IOException e){
+            //         e.printStackTrace();
+            //     }
+            // }
 
-            if(os != null){
-                try{
-                    os.close();
-                }catch(IOException e){
-                    e.printStackTrace();
-                }
-            }
+            // if(os != null){
+            //     try{
+            //         os.close();
+            //     }catch(IOException e){
+            //         e.printStackTrace();
+            //     }
+            // }
 
             close(is, os);
         }

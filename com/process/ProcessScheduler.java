@@ -2,7 +2,7 @@
  * @Author: m13237097902 m13237097902@gmail.com
  * @Date: 2025-04-02 03:16:32
  * @LastEditors: m13237097902 m13237097902@gmail.com
- * @LastEditTime: 2025-04-02 06:57:53
+ * @LastEditTime: 2025-04-03 07:21:37
  * @FilePath: /workspace/STUDY/com/process/Process.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -16,7 +16,7 @@ import java.util.Queue;
 
 /**
  * 进程控制块（PCB）
- * 
+ *
  * 定义进程对象，每个进程都会存储自己的信息
  */
 class Process {
