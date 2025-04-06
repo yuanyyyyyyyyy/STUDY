@@ -2,18 +2,19 @@
  * @Author: m13237097902 m13237097902@gmail.com
  * @Date: 2025-04-03 06:34:19
  * @LastEditors: m13237097902 m13237097902@gmail.com
- * @LastEditTime: 2025-04-03 06:48:24
+ * @LastEditTime: 2025-04-05 12:56:56
  * @FilePath: /workspace/STUDY/chapter18/com/cyx/io/_char/Examle1.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 package chapter18.com.cyx.io._char;
 
-import java.io.File;
-
 /**
  * 使用字符流将"超用心在线教育"写入磁盘文件中
  */
-import java.io.*;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
 
 public class Example1 {
 
