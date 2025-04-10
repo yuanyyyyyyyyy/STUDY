@@ -31,6 +31,30 @@ public class AnonymousClass {
         };
         a.eat();
 
+        // class A extends Student{
+        //     public A(String name, int age){
+        //         super(name, age);
+        //     }
+
+        //     @Override
+        //     public void show(){
+        //         System.out.println(age);
+        //     }
+        // }
+        // Student s = new A("好奇怪", 20)
+        // s.show();
+
+        Student stu = new Student("好奇怪", 20){
+
+            @Override
+            public void show(){
+                System.out.println(age);
+            }
+        };
+        stu.show();
+
+
+
     }
 
     public static int calculate(int a, int b){

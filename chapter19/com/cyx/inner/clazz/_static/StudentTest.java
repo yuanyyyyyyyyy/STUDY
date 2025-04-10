@@ -1,4 +1,4 @@
-package chapter19.com.cyx.inner.clazz;
+package chapter19.com.cyx.inner.clazz._static;
 
 public class StudentTest {
 
