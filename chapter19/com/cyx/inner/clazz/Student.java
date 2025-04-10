@@ -1,4 +1,4 @@
-package chapter18.chapter19.com.cyx.inner.clazz;
+package chapter19.com.cyx.inner.clazz;
 
 /**
  * 使用静态内部类实现学生管理员对学生按年龄进行排序展示的功能
