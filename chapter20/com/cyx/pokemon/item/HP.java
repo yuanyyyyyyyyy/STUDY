@@ -1,3 +1,11 @@
+/*
+ * @Author: m13237097902 m13237097902@gmail.com
+ * @Date: 2025-04-10 13:25:11
+ * @LastEditors: m13237097902 m13237097902@gmail.com
+ * @LastEditTime: 2025-04-12 07:13:18
+ * @FilePath: /workspace/STUDY/chapter20/com/cyx/pokemon/item/HP.java
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 package chapter20.com.cyx.pokemon.item;
 
 /**
@@ -14,6 +22,8 @@ public class HP extends Item{
         super("天山雪莲", levelNumber);
         this.count = count;
     }
+
+    
 
     /**
      * 使用药品可以恢复血量
@@ -33,6 +43,21 @@ public class HP extends Item{
     @Override
     public String getItemInformation(){
         return name;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+
+
+    public void addCount(int count2) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'addCount'");
     }
 
 }

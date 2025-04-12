@@ -43,6 +43,12 @@ public class Monster extends Item{
         return defense;
     }
     
+    /**
+     * 怪物恢复
+     */
+    public void resum(){
+        currentHealth = health;
+    }
 
     /**
      * 攻击宠物小精灵

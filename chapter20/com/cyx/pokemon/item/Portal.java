@@ -18,6 +18,10 @@ public class Portal extends Item{
         super("传送门");
         this.next = next;
     }
+
+    public boolean isNext(){
+        return next;
+    }
     @Override
     public String getItemInformation(){
         if(discovery){

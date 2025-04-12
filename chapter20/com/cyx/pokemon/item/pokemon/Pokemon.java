@@ -2,7 +2,7 @@
  * @Author: m13237097902 m13237097902@gmail.com
  * @Date: 2025-04-11 08:02:07
  * @LastEditors: m13237097902 m13237097902@gmail.com
- * @LastEditTime: 2025-04-11 12:35:24
+ * @LastEditTime: 2025-04-12 02:22:06
  * @FilePath: /workspace/STUDY/chapter20/com/cyx/pokemon/item/pokemon/Pokemon.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -196,6 +196,11 @@ public abstract class Pokemon extends Item{
             }
         }
         return old;
+    }
+
+    public double getHealthPercent() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getHealthPercent'");
     }
 
     

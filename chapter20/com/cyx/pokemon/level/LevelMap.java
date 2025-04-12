@@ -3,6 +3,7 @@ package chapter20.com.cyx.pokemon.level;
 import chapter20.com.cyx.pokemon.Adventurer;
 import chapter20.com.cyx.pokemon.item.DisplayItem;
 import chapter20.com.cyx.pokemon.item.Portal;
+import chapter20.com.cyx.pokemon.item.Treasure;
 import chapter20.com.cyx.pokemon.item.monster.CattleMonster;
 import chapter20.com.cyx.pokemon.item.monster.Mamoswine;
 import chapter20.com.cyx.pokemon.item.monster.Moltres;
@@ -28,6 +29,11 @@ public class LevelMap {
      * 地图上的物品：9x9
      */
     private final DisplayItem[][] items = new DisplayItem[9][9];
+
+    /**
+     * 记录冒险家在地图中的位置
+     */
+    private int currentRow, currentCol;
 
     public LevelMap(int number){
         this.number = number;
@@ -56,9 +62,9 @@ public class LevelMap {
         int generatedMonster2 = 0;//记录生成的中级怪物数量
         int generatedMonster3 = 0;//记录生成的高级怪物数量
         int generatedMonster4 = 0;//记录生成的究极怪物数量
-
-        //记录生成的宝箱数量
+        //记录生成的传送门数量
         int generatedPortal = 0;
+
         while(generatedTreasure < 39
             || (generatedMonster1 + generatedMonster2 + generatedMonster3 + generatedMonster4) < 39
             || generatedPortal == 0){
@@ -78,9 +84,9 @@ public class LevelMap {
                 items[row][col] = new Portal(true);
                 generatedPortal += 1; 
             }else if(rate < 40){//宝箱
-                //包厢已经全部生成完毕，直接跳过
+                //宝箱已经全部生成完毕，直接跳过
                 if(generatedTreasure == 39) continue;
-                items[row][col] = Tools.getRandomItem(number);
+                items[row][col] = new Treasure(number);
                 generatedTreasure += 1;
             }else{//怪物 初级：中级：高级：究极 = 18：12：6：3
                 int num = Tools.getRandomNumber(39);
@@ -110,6 +116,103 @@ public class LevelMap {
             
     }
 
+    /**
+     * 获取给定方向位置的物品信息
+     * @param direct 方向
+     * @return 
+     */
+    public DisplayItem getPositionItem(char direct){
+        int targetRow = currentRow, targetCol = currentCol;
+        switch(direct){
+            case 'W'://向上
+                if(targetRow == 0){//第一行，上不去
+                    return null;
+                }
+                targetRow -= 1;
+                break;
+            case 'A'://向左
+                if(targetCol == 0){//第一列，左不了
+                    return null;
+                }
+                targetCol -= 1;
+                break;
+            case 'S'://向下
+                if(targetRow == items.length - 1){//最后一行，下不去
+                    return null;
+                }
+                targetRow += 1;
+                break;
+            case 'D'://向右
+                if(targetCol == items[currentRow].length - 1){//最后一列，右不了
+                    return null;
+                }
+                targetCol += 1;
+                break;
+        }
+        return items[targetRow][targetCol];
+    }
+
+    /**
+     * 给定方向移动冒险家的位置
+     * @param direct 方向
+     */
+    public void move(char direct){
+        int oldRow = currentRow, oldCol = currentCol;
+        //获取冒险家
+        DisplayItem adventurer = items[oldRow][oldCol];
+        switch(direct){
+            case 'W'://向上
+                if(currentRow == 0){
+                    System.err.println("非法移动");
+                    Tools.lazy(300L);
+                    return;
+                }
+                currentRow -= 1;
+                break;
+            case 'A'://向左
+                if(currentCol == 0){
+                    System.err.println("非法移动");
+                    Tools.lazy(300L);
+                    return;
+                }
+                currentCol -= 1;
+                break;
+            case 'S'://向下
+                if(currentRow == items.length - 1){
+                    System.err.println("非法移动");
+                    Tools.lazy(300L);
+                    return;
+                }
+                currentRow += 1;
+                break;
+            case 'D'://向右
+                if(currentCol == items[currentRow].length - 1){
+                    System.err.println("非法移动");
+                    Tools.lazy(300L);
+                    return;
+                }
+                currentCol += 1;
+                break;
+        }
+
+    }
+
+    /**
+     * 冒险家开始闯关时会进入关卡地图，因此需要在关卡地图LevelMap中添加冒险家
+     *
+     * 添加冒险家
+     * @param adventurer 冒险家
+     */
+    public void addAdventurer(Adventurer adventurer){
+        currentRow = 0;
+        if(number == 1){//第一关
+            currentCol = 0;
+        }else{
+            currentCol = 1;
+        }
+        items[currentRow][currentCol] = adventurer;
+    }
+    
     /**
      * 展示地图
      */
@@ -159,18 +262,6 @@ public class LevelMap {
         System.out.println(lastLine);
     }
 
-    /**
-     * 冒险家开始闯关时会进入关卡地图，因此需要在关卡地图LevelMap中添加冒险家
-     * 
-     * 添加冒险家
-     * @param adventurer 冒险家
-     */
-    public void addAdventurer(Adventurer adventurer){
-        if(number == 1){//第一关
-            items[0][0] = adventurer;
-        }else{
-            items[0][1] = adventurer;
-        }
-    }
+    
 
 }

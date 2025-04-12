@@ -114,5 +114,20 @@ public class Tools {
          return new HP(levelNumber, 10);
       }
    }
+
+   public static char getInputChar() {
+      // TODO Auto-generated method stub
+      throw new UnsupportedOperationException("Unimplemented method 'getInputChar'");
+   }
+
+public static void lazy(long l) {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'lazy'");
+}
+
+public static int getInputNumber(int i, int length) {
+   // TODO Auto-generated method stub
+   throw new UnsupportedOperationException("Unimplemented method 'getInputNumber'");
+}
       
 }
