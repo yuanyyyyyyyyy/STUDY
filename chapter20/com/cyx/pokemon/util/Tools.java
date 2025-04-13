@@ -2,7 +2,7 @@
  * @Author: m13237097902 m13237097902@gmail.com
  * @Date: 2025-04-10 13:35:34
  * @LastEditors: m13237097902 m13237097902@gmail.com
- * @LastEditTime: 2025-04-11 12:42:32
+ * @LastEditTime: 2025-04-13 09:01:28
  * @FilePath: /workspace/STUDY/chapter20/com/cyx/pokemon/util/Tools.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -12,6 +12,7 @@ package chapter20.com.cyx.pokemon.util;
  * 工具类
  */
 import java.util.Random;
+import java.util.Scanner;
 
 import chapter20.com.cyx.pokemon.item.HP;
 import chapter20.com.cyx.pokemon.item.Item;
@@ -35,6 +36,49 @@ public class Tools {
     */
    private static final Random RANDOM = new Random();
 
+   public static char getInputChar(){
+      while(true){
+         String input = SCANNER.next().trim();//获取输入的字符串并去掉首尾空格
+         if(input.length() != 1){
+            System.out.println("输入错误，请重新输入");
+         }else{
+            return input.charAt(0);//获取输入的第一个字符
+         }
+      }
+   }
+
+   public static int getInputNumber(int min, int max){
+      while(true){
+         if(SCANNER.hasNextInt()){//判断输入的是否为整数
+            int num = SCANNER.nextInt();
+            if(num >= min && num <= max){
+               return num;
+            }else{
+               System.out.println("输入错误，请输入" + min + "~" + max + "");
+            }
+         }else{
+            System.out.println("输入错误，请输入" + min + "~" + max + "之间的整数");
+            SCANNER.next();//清空输入流
+         }
+      }
+   }
+
+   /**
+    * 延迟给定时间
+    */
+
+   public static void lazy(long time){
+      try{
+         Thread.sleep(time);
+      }catch(InterruptedException e){
+         e.printStackTrace();
+      }
+   }
+
+   /**
+    * 输入对象
+    */
+   private static final Scanner SCANNER = new Scanner(System.in);
    /**
      * 获取给定范围内的随机数
      * @param min 最小值
@@ -115,19 +159,4 @@ public class Tools {
       }
    }
 
-   public static char getInputChar() {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'getInputChar'");
-   }
-
-public static void lazy(long l) {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'lazy'");
-}
-
-public static int getInputNumber(int i, int length) {
-   // TODO Auto-generated method stub
-   throw new UnsupportedOperationException("Unimplemented method 'getInputNumber'");
-}
-      
 }

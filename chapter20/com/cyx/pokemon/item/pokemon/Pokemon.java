@@ -2,7 +2,7 @@
  * @Author: m13237097902 m13237097902@gmail.com
  * @Date: 2025-04-11 08:02:07
  * @LastEditors: m13237097902 m13237097902@gmail.com
- * @LastEditTime: 2025-04-12 02:22:06
+ * @LastEditTime: 2025-04-13 08:32:32
  * @FilePath: /workspace/STUDY/chapter20/com/cyx/pokemon/item/pokemon/Pokemon.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -117,9 +117,17 @@ public abstract class Pokemon extends Item{
         this.currentHealth = currentHealth;
     }
 
+    /**
+     * 获取当前生命值与生命总值百分比
+     */
+    public double getHealthPercent(){
+        return currentHealth * 1.0 / getHealth();
+    }
+
+
     @Override
     public String getItemInformation(){
-        return name + ": 攻击 =" + attack + " 防御 = " + defense + " 生命值=" + health;
+        return name + ": 攻击 =" + getAttack() + " 防御 = " + getDefense() + " 生命值=" + getHealth();
     }
 
     /**
@@ -196,11 +204,6 @@ public abstract class Pokemon extends Item{
             }
         }
         return old;
-    }
-
-    public double getHealthPercent() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getHealthPercent'");
     }
 
     

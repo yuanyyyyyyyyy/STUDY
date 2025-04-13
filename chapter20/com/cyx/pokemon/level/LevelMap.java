@@ -2,6 +2,7 @@ package chapter20.com.cyx.pokemon.level;
 
 import chapter20.com.cyx.pokemon.Adventurer;
 import chapter20.com.cyx.pokemon.item.DisplayItem;
+import chapter20.com.cyx.pokemon.item.Item;
 import chapter20.com.cyx.pokemon.item.Portal;
 import chapter20.com.cyx.pokemon.item.Treasure;
 import chapter20.com.cyx.pokemon.item.monster.CattleMonster;
@@ -194,6 +195,11 @@ public class LevelMap {
                 currentCol += 1;
                 break;
         }
+        
+        //冒险家新的位置
+        items[currentRow][currentCol] = adventurer;
+        //原来的位置就不存在物品了
+        items[oldRow][oldCol] = null;
 
     }
 
@@ -217,30 +223,35 @@ public class LevelMap {
      * 展示地图
      */
     public void show(){
+        System.out.println("宠物小精灵第" + number + "关：");
         for(int i = 0; i < items.length; i++){
             String line1 = "", line2 = "";
             for(int j = 0; j < items[i].length; j++){
+                String info = " ";
+                if(items[i][j] != null){
+                    info = items[i][j].getItemInformation();//如果存在物品，则展示物品信息
+                }
                 if(i == 0){//第一行
                     if(j == 0){//第一列
                         line1 += "┌───";
-                        line2 += "| " + items[i][j].getItemInformation() + " ";
+                        line2 += "| " + info + " ";
                     }else if(j == items[i].length - 1){//最后一列
                         line1 += "┬───┐";
-                        line2 += "| " + items[i][j].getItemInformation() + " |";
+                        line2 += "| " + info + " |";
                     }else {
                         line1 += "┬───";
-                        line2 += "| " + items[i][j].getItemInformation() + " ";
+                        line2 += "| " + info + " ";
                     }
                 }else{
                     if(j == 0){//第一列
                         line1 += "├───";
-                        line2 += "| " + items[i][j].getItemInformation() + " ";
+                        line2 += "| " + info + " ";
                     }else if(j == items[i].length - 1){//最后一列
                         line1 +=  "┼───┤";;
-                        line2 += "| " + items[i][j].getItemInformation() + " |";
+                        line2 += "| " + info + " |";
                     }else{
                         line1 += "┼───";
-                        line2 += "| " + items[i][j].getItemInformation() + " ";
+                        line2 += "| " + info + " ";
                     }
                 }
             }

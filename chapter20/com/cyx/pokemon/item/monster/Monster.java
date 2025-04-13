@@ -1,3 +1,11 @@
+/*
+ * @Author: m13237097902 m13237097902@gmail.com
+ * @Date: 2025-04-10 12:45:43
+ * @LastEditors: m13237097902 m13237097902@gmail.com
+ * @LastEditTime: 2025-04-12 13:23:44
+ * @FilePath: /workspace/STUDY/chapter20/com/cyx/pokemon/item/monster/Monster.java
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 package chapter20.com.cyx.pokemon.item.monster;
 
 import chapter20.com.cyx.pokemon.item.Item;
@@ -7,7 +15,7 @@ import chapter20.com.cyx.pokemon.util.Tools;
 /**
  * 怪物
  */
-public class Monster extends Item{
+public abstract class Monster extends Item{
 
     /**
      * 攻击力
@@ -64,7 +72,7 @@ public class Monster extends Item{
         //剩余血量
         int restHealth = pokemon.getCurrentHealth() - minusHealth;
         pokemon.setCurrentHealth(restHealth);
-        System.out.println(name + "对" + pokemon.getName() + "发动攻击，造成了" + minusHealth + "伤害，" + pokemon.getName() + "剩余血量为" + restHealth);
+        System.err.println(name + "对" + pokemon.getName() + "发动攻击，造成了" + minusHealth + "伤害，" + pokemon.getName() + "剩余血量为" + restHealth);
     }
 
     /**

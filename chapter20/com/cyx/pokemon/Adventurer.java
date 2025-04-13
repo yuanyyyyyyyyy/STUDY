@@ -2,7 +2,7 @@
  * @Author: m13237097902 m13237097902@gmail.com
  * @Date: 2025-04-12 01:54:29
  * @LastEditors: m13237097902 m13237097902@gmail.com
- * @LastEditTime: 2025-04-12 07:41:42
+ * @LastEditTime: 2025-04-13 07:17:20
  * @FilePath: /workspace/STUDY/chapter20/com/cyx/pokemon/Adventurer.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -96,7 +96,7 @@ public class Adventurer implements DisplayItem{
                 }else if(item instanceof Portal){//传送门
                     System.out.println("发现传送门，是否通过? Y/N");
                     char pass = Tools.getInputChar();
-                    if(character.toUpperCase(pass) == 'Y'){
+                    if(Character.toUpperCase(pass) == 'Y'){
                         if(((Portal)item).isNext()){//通往下一关的传送门
                             //获取当前关卡的下一关卡
                             Level nextLevel = currentLevel.getNextLevel();
